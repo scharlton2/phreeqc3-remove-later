@@ -109,10 +109,7 @@ main_method(int argc, char *argv[])
 	{
 		return errors;
 	}
-#ifndef NO_UTF8_ENCODING
 #ifdef DOS
-	SetConsoleOutputCP(CP_UTF8);
-#endif
 	write_banner();
 #endif
 
@@ -202,10 +199,7 @@ main_method(int argc, char *argv[])
 		{
 			return errors;
 		}
-#ifndef NO_UTF8_ENCODING
 #ifdef DOS
-		SetConsoleOutputCP(CP_UTF8);
-#endif
 		write_banner();
 #endif
 
@@ -277,9 +271,9 @@ write_banner(void)
 	char buffer[80];
 	int len, indent;
 	screen_msg(
-			   "              â–ˆâ–€â–€â–€â–€â–€â–€â–€â–€â–€â–€â–€â–€â–€â–€â–€â–€â–€â–€â–€â–€â–€â–€â–€â–€â–€â–€â–€â–€â–€â–€â–€â–€â–€â–€â–€â–€â–€â–€â–€â–€â–€â–€â–€â–€â–ˆ\n");
+			   "              ÛßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßÛ\n");
 	screen_msg(
-			   "              â•‘                                            â•‘\n");
+			   "              º                                            º\n");
 
 	/* version */
 #ifdef NPP
@@ -288,21 +282,21 @@ write_banner(void)
 	len = sprintf(buffer, "* PHREEQC-%s *", "@VERSION@");
 #endif
 	indent = (44 - len) / 2;
-	screen_msg(sformatf("%14câ•‘%*c%s%*câ•‘\n", ' ', indent, ' ', buffer,
+	screen_msg(sformatf("%14cº%*c%s%*cº\n", ' ', indent, ' ', buffer,
 			   44 - indent - len, ' '));
 
 	screen_msg(
-			   "              â•‘                                            â•‘\n");
+			   "              º                                            º\n");
 	screen_msg(
-			   "              â•‘      A hydrogeochemical transport model    â•‘\n");
+			   "              º      A hydrogeochemical transport model    º\n");
 	screen_msg(
-			   "              â•‘                                            â•‘\n");
+			   "              º                                            º\n");
 	screen_msg(
-			   "              â•‘                    by                      â•‘\n");
+			   "              º                    by                      º\n");
 	screen_msg(
-			   "              â•‘       D.L. Parkhurst and C.A.J. Appelo     â•‘\n");
+			   "              º       D.L. Parkhurst and C.A.J. Appelo     º\n");
 	screen_msg(
-			   "              â•‘                                            â•‘\n");
+			   "              º                                            º\n");
 
 
 	/* date */
@@ -312,11 +306,11 @@ write_banner(void)
 	len = sprintf(buffer, "%s", "@VER_DATE@");
 #endif
 	indent = (44 - len) / 2;
-	screen_msg(sformatf("%14câ•‘%*c%s%*câ•‘\n", ' ', indent, ' ', buffer,
+	screen_msg(sformatf("%14cº%*c%s%*cº\n", ' ', indent, ' ', buffer,
 			   44 - indent - len, ' '));
 
 	screen_msg(
-			   "              â–ˆâ–„â–„â–„â–„â–„â–„â–„â–„â–„â–„â–„â–„â–„â–„â–„â–„â–„â–„â–„â–„â–„â–„â–„â–„â–„â–„â–„â–„â–„â–„â–„â–„â–„â–„â–„â–„â–„â–„â–„â–„â–„â–„â–„â–„â–ˆ\n\n");
+			   "              ÛÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÛ\n\n");
 
 	return 0;
 }
@@ -491,7 +485,7 @@ process_file_names(int argc, char *argv[], std::istream **db_cookie,
 		}
 		local_database_file->close();
 		delete local_database_file;
-
+		
 		user_database = (char *) free_check_null(user_database);
 		user_database = string_duplicate(token);
 		screen_msg(sformatf("Database file: %s\n\n", token));
