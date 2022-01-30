@@ -3,13 +3,13 @@ version: '{branch}-{build}'
 image: Visual Studio 2019
 
 before_build:
-  - ps: cmake -G"Visual Studio 16 2019" -B $env:APPVEYOR_BUILD_FOLDER/_vs2019 -DCMAKE_BUILD_TYPE=Release 
+  - cmake -G"Visual Studio 16 2019" -B %APPVEYOR_BUILD_FOLDER%/_vs2019 -DCMAKE_BUILD_TYPE=Release 
 
 build_script:
-  - ps: cmake --build $env:APPVEYOR_BUILD_FOLDER/_vs2019 --config Release
+  - cmake --build %APPVEYOR_BUILD_FOLDER%/_vs2019 --config Release
 
 after_build:
-  - ps: cmake --install $env:APPVEYOR_BUILD_FOLDER/_vs2019 --prefix $env:APPVEYOR_BUILD_FOLDER/INSTALL  
+  - cmake --install %APPVEYOR_BUILD_FOLDER%/_vs2019 --prefix %APPVEYOR_BUILD_FOLDER%/INSTALL  
 
 artifacts:
   - path: $(APPVEYOR_BUILD_FOLDER)\INSTALL
