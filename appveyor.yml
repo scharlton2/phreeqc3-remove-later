@@ -12,4 +12,5 @@ after_build:
   - ps: cmake --install $env:APPVEYOR_BUILD_FOLDER/_vs2019 --prefix $env:APPVEYOR_BUILD_FOLDER/INSTALL  
 
 artifacts:
-  - $env:APPVEYOR_BUILD_FOLDER/INSTALL
+  - path: $(APPVEYOR_BUILD_FOLDER)\INSTALL
+    name: vs2019
